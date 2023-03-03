@@ -8,7 +8,7 @@ class Block {
         this.hash= this.calculateHash();
     }
     calculateHash(){
-        return sha256(this.index, this.timestamp, this.previousHash, JSON.stringify(this.data)).toString()
+        return sha256(this.index + this.timestamp + this.previousHash + JSON.stringify(this.data)).toString()
     }
 }
 class Blockchain{
@@ -57,10 +57,10 @@ myCoin.addBlock(new Block("2", "04/03/2023", {amount: 20}));
 
 //console.log(JSON.stringify(myCoin, null, 4));
 
+//Use case where change is being done in the block
 console.log("is our chain valid: " + myCoin.isChainValid());
-
-myCoin.chain[2].timestamp = "06/03/2023";
-myCoin.chain[2].hash = myCoin.chain[2].calculateHash();
+myCoin.chain[1].data = {amount: 200};
+myCoin.chain[1].hash = myCoin.chain[1].calculateHash();
 
 console.log("is our chain valid: " + myCoin.isChainValid());
 

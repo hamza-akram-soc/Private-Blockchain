@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "crypto-js": "^4.1.1",
-    "type": "module"
+    "crypto-js": "^4.1.1"
   }
 }
