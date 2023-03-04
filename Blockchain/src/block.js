@@ -49,7 +49,6 @@ class Blockchain{
         return true;
         
     }
-
 }
 let myCoin = new Blockchain();
 myCoin.addBlock(new Block("1", "03/03/2023", {amount: 2}));
